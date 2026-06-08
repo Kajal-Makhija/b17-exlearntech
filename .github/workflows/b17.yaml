@@ -3,18 +3,29 @@ name: b17-workflow
 on: push
 
 jobs:
-  first:
-    runs-on: ubuntu-latest
-    steps:
-      - name: print message
-        run: |
-            sleep 10 
-            echo "Hello world!!!!"
-  second:
-    runs-on: ubuntu-22.04-arm
-    needs: first
-    steps:
-      - name: Print message for second job
-        run: |
-            sleep 10
-            echo "This is my second job"
+    first:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Create a file
+          run: echo "This is test reports" > report.txt
+
+    second:
+        runs-on: ubuntu-latest
+        steps:
+          - name: View the reports
+            run: cat report.txt
+#   first:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: print message
+#         run: |
+#             sleep 10 
+#             echo "Hello world!!!!"
+#   second:
+#     runs-on: ubuntu-22.04-arm
+#     needs: first
+#     steps:
+#       - name: Print message for second job
+#         run: |
+#             sleep 10
+#             echo "This is my second job"
