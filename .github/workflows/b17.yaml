@@ -9,9 +9,21 @@ jobs:
         - name: Create a file
           run: echo "This is test reports" > report.txt
 
+        - name: Upload the file
+          uses: actions/upload-artifact@v7
+          with:
+            name: report.txt
+            path: ./report.txt
+
     second:
         runs-on: ubuntu-latest
         steps:
+
+          - name: Download Artifacts
+            uses: actions/download-artifact@v8
+            with:
+              name: report.txt
+
           - name: View the reports
             run: cat report.txt
 #   first:
