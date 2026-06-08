@@ -8,3 +8,8 @@ jobs:
     steps:
       - name: print message
         run: echo "Hello world!!!!"
+  second:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message for second job
+        run: echo "This is my second job"
