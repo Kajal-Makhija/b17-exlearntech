@@ -12,6 +12,7 @@ jobs:
             echo "Hello world!!!!"
   second:
     runs-on: ubuntu-22.04-arm
+    needs: first
     steps:
       - name: Print message for second job
         run: |
