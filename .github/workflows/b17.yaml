@@ -4,28 +4,31 @@ on: push
 
 jobs:
     first:
-      runs-on: ubuntu-latest
+      runs-on: [self-hosted, Linux, prod]
+
       steps:
-        - name: Create a file
-          run: echo "This is test reports" > report.txt
+        - name: Create a file and view
+          run: | 
+            echo "This is test reports" > report.txt
+            cat report.txt
 
-        - name: Upload the file
-          uses: actions/upload-artifact@v7
-          with:
-            name: report.txt
-            path: ./report.txt
+        # - name: Upload the file
+        #   uses: actions/upload-artifact@v7
+        #   with:
+        #     name: report.txt
+        #     path: ./report.txt
 
-    second:
-        runs-on: ubuntu-latest
-        steps:
+    # second:
+    #     runs-on: ubuntu-latest
+    #     steps:
 
-          - name: Download Artifacts
-            uses: actions/download-artifact@v4
-            with:
-              name: report.txt
+    #       - name: Download Artifacts
+    #         uses: actions/download-artifact@v4
+    #         with:
+    #           name: report.txt
 
-          - name: View the reports
-            run: cat report.txt
+    #       - name: View the reports
+    #         run: cat report.txt
 #   first:
 #     runs-on: ubuntu-latest
 #     steps:
