@@ -7,9 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print message
-        run: echo "Hello world!!!!"
+        run: |
+            sleep 10 
+            echo "Hello world!!!!"
   second:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04-arm
     steps:
       - name: Print message for second job
-        run: echo "This is my second job"
+        run: |
+            sleep 10
+            echo "This is my second job"
